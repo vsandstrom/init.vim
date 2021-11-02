@@ -1,15 +1,29 @@
 call plug#begin('~/.config/nvim/plugged')
+
+ "Cool theme
+ Plug 'dracula/vim'
+ 
+ Plug 'morhetz/gruvbox'
+
+ Plug 'srcery-colors/srcery-vim'
+
  " Supercollider plugin
  Plug 'davidgranstrom/scnvim', { 'do': {-> scnvim#install() } }
  
- " Custom status line
- Plug 'itchyny/lightline.vim'
-
  " (optional) for snippets
  Plug 'SirVer/ultisnips'
  
  " Snippets are separated from the engine. Add this if you want them:
  Plug 'honza/vim-snippets'
+ 
+ " Custom status line
+ Plug 'itchyny/lightline.vim'
+ 
+ " Show current git branch
+ Plug 'itchyny/vim-gitbranch'
+
+ " C / C++ autocomplete
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
  " Enables easy folder tree search and management
  Plug 'preservim/nerdtree'
@@ -19,6 +33,9 @@ call plug#begin('~/.config/nvim/plugged')
  
  " Enables self-wrapping parenthesis and brackets etc
  Plug 'tpope/vim-surround'
+
+ " Colorize matching brackets
+ Plug 'luochen1990/rainbow'
 
  " Enables easy and contextual commenting
  Plug 'tpope/vim-commentary'
@@ -35,15 +52,15 @@ call plug#begin('~/.config/nvim/plugged')
  " Clean indent-folding. z+c & z+a
  Plug 'tmhedberg/SimpylFold'
 
-if has ('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"if has ('nvim')
+"	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+" 	Plug 'Shougo/deoplete.nvim'
+" 	Plug 'roxma/nvim-yarp'
+" 	Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
- Plug 'deoplete-plugins/deoplete-jedi'
+ " Plug 'deoplete-plugins/deoplete-jedi'
  
  Plug 'sbdchd/neoformat'
  
@@ -73,11 +90,17 @@ call plug#end()
 
 " ----- SETTINGS -----
 
+" reload init.vim when edited.
+autocmd! bufwritepost init source ~/.config/nvim/init.vim
+" colorscheme srcery
+" autocmd vimenter * ++nested colorscheme gruvbox
 syntax enable
 
 set tabstop=4
+set t_Co=256
 set softtabstop=4
-set nu " show line number
+set textwidth=120
+set number " show line number
 " set cursorline
 set shiftwidth=4
 set autoindent
@@ -85,6 +108,8 @@ set foldmethod=indent
 set foldlevel=99
 set splitbelow
 set noshowmode
+set so=999
+set rtp+=/usr/local/opt/fzf/
 
 noremap U {
 noremap N }
@@ -93,6 +118,25 @@ noremap L $
 tnoremap <ESC> <C-\><C-n>
  
 let g:kite_auto_complete = 0
+
+let g:rainbow_active = 1
+
+if has('gui_running') || 'xterm-256color' == $TERM
+  let g:rainbow_conf = extend({
+  \   'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],
+  \   'ctermfgs' : ['195','220','150','111', '172'],
+  \}, exists('g:rainbow_conf')? g:rainbow_conf : {})
+else
+  let g:rainbow_conf = extend({
+  \   'ctermfgs' = [ 'lightgrey', 'grey', 'darkgrey', 'black'],
+  \}, exists('g:rainbow_conf')? g:rainbow_conf : {})
+endif
+
+" set clangd.enabled=false
+
+" if FileType c
+" 	set clangd.enabled=true
+" endif
 
 au BufNewFile,BufRead *.py	" sets specific settings depending on file extension of file being edited
 		\ set tabstop=4
@@ -107,11 +151,22 @@ autocmd FileType python nnoremap <buffer> <F3> :! python3 % <CR>
 
 " sets color of line numbers
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " ----- SUPERCOLLIDER -----
 
 " post window at the bottom
 let g:scnvim_postwin_orientation = 'h'
+
+autocmd BufNewFile, BufRead *scd set ft=supercollider
 
 " remap send block
 autocmd FileType supercollider nmap <F5> <Plug>(scnvim-send-block)
@@ -151,26 +206,6 @@ augroup scnvim_stl
 	autocmd FileType supercollider call <SID>set_sclang_statusline()
 augroup END
 
-" lightline.vim example
-let g:lightline = {
-    \ 'colorscheme': 'OldHope',
-	\ }
-let g:lightline.component_function = {
-	\ 'server_status': 'scnvim#statusline#server_status',
-	\ }
-
-
-function! s:set_sclang_lightline_stl()
-	let g:lightline.active = {
-	\ 'left':  [ [ 'mode', 'paste' ],
-	\          [ 'readonly', 'filename', 'modified' ] ],
-	\ 'right': [ [ 'lineinfo' ],
-	\            [ 'percent' ],
-	\            [ 'server_status'] ]
-	\ }
-	let s:p.normal.right = [ [ 'mode', 'paste' ] ]
-endfunction
-
 " ----- SUPERTAB -----
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -209,5 +244,4 @@ call neomake#configure#automake('nrwi', 500)
 
 let g:highlightedyank_highlight_duration = -1
 
-" ----- SEND TO TERMINAL -----
 
