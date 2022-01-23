@@ -1,20 +1,27 @@
 
 " ----- SUPERCOLLIDER -----
 
-" post window at the bottom
+" post window config:
 let g:scnvim_postwin_orientation = 'h'
+let g:scnvim_postwin_size = 25
+let g:scnvim_postwin_auto_toggle = 1
+let g:scnvim_postwin_syntax_hl = 1
+
+
+" snippet format 
 let g:scnvim_snippet_format = "luasnip"
 
-
 " Opens documentation in vim buffer instead of external window
-" let g:scnvim_scdoc=1
+let g:scnvim_scdoc=1
 
+" change default udp-port
 " let g:scnvim_sclang_options=['-u', 9999]
 
-" let g:scnvim_echo_args_float=1
-
+" when .scd or .sc file, set filetype to supercollider
 autocmd BufNewFile, BufRead *.scd, *.sc set ft=supercollider
 
+
+"----- Custom Keybindings -----
 " remap send block
 autocmd FileType supercollider nmap <F5> <Plug>(scnvim-send-block)
 
@@ -26,8 +33,7 @@ autocmd FileType supercollider nmap <Space>o <Plug>(scnvim-postwindow-toggle)
 
 
 " hard coded path to sclang executable
-
-" let g:scnvim_sclang_executable = '/Applications/SuperCollider/SuperCollider.app/Contents/MacOS/sclang'
+let g:scnvim_sclang_executable = '/Applications/SuperCollider/SuperCollider.app/Contents/MacOS/sclang'
 
 " eval flash colorschemes
 highlight SCNvimEval guifg=black guibg=cyan ctermfg=black ctermbg=cyan

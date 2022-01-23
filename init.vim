@@ -34,3 +34,18 @@ source $HOME/.config/nvim/plug-config/nvim-cmp.vim
 
 source $HOME/.config/nvim/plug-config/luasnips.vim
 
+" ----- TREESITTER -----
+" EMPTY FILE:
+" source $HOME/.config/nvim/plug-config/treesitter.vim
+
+" ----- GITGUTTER -----
+
+source $HOME/.config/nvim/plug-config/gitgutter.vim
+
+" ----- FAUST -----
+
+" source $HOME/.config/nvim/plug-config/faust.vim
+
+" ----- SNIPPETS -----
+
+" source $HOME/.config/nvim/plug-config/snippets.vim

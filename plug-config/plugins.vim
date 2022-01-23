@@ -12,6 +12,7 @@ Plug 'morhetz/gruvbox'
 
 " LSP Configuration
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 " Supercollider plugin
 Plug 'davidgranstrom/scnvim', { 'do': {-> scnvim#install() } }
@@ -25,6 +26,9 @@ Plug 'itchyny/lightline.vim'
 
 " Show current git branch
 Plug 'itchyny/vim-gitbranch'
+
+" GitGutter
+Plug 'airblade/vim-gitgutter'
 
 " Rust support
 Plug 'rust-lang/rust.vim'
@@ -87,6 +91,10 @@ Plug 'digitaltoad/vim-pug'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" lua snippets
+" Plug 'madskjeldgaard/lua-supercollider-snippets'
+" Plug 'norcalli/snippets.nvim'
+
 " For ultisnips users.
 " Plug 'SirVer/ultisnips'
 " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
@@ -96,4 +104,11 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " Plug 'dcampos/cmp-snippy'
 
 Plug 'glepnir/lspsaga.nvim'
+
+" faust syntax and filetype
+" Plug 'gmoe/vim-faust'
+
+" Other faust things
+" Plug 'madskjeldgaard/faust-nvim'
+
 call plug#end()

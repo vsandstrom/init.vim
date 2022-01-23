@@ -11,12 +11,14 @@ set t_Co=256
 set softtabstop=4
 set textwidth=110
 set number " show line number
+set signcolumn
 " set cursorline
 set shiftwidth=4
 set autoindent
 set foldmethod=indent
 set foldlevel=99
 set splitbelow
+set splitright
 set noshowmode
 set so=999
 set rtp+=/usr/local/opt/fzf/
@@ -39,3 +41,8 @@ au BufNewFile,BufRead *.py	" sets specific settings depending on file extension 
 
 autocmd FileType python nnoremap <buffer> <F3> :! python3 % <CR> 
 
+" function! FtHelpSc()
+" 	nmap <q> :q<CR>
+" endfunction
+
+" autocmd FileType help.supercollider call FtHelpSc()
