@@ -41,8 +41,7 @@ au BufNewFile,BufRead *.py	" sets specific settings depending on file extension 
 
 autocmd FileType python nnoremap <buffer> <F3> :! python3 % <CR> 
 
-" function! FtHelpSc()
-" 	nmap <q> :q<CR>
-" endfunction
+autocmd FileType help.supercollider nmap <silent><buffer>q <ESC>:x<CR>
+autocmd FileType qf nmap <buffer>q <silent><ESC>:x<CR>
 
 " autocmd FileType help.supercollider call FtHelpSc()
