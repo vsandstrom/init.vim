@@ -21,6 +21,10 @@ Plug 'davidgranstrom/scnvim', { 'do': {-> scnvim#install() } }
 Plug 'MunifTanjim/nui.nvim' " gui plugin
 Plug 'madskjeldgaard/sc-scratchpad.nvim' " scratchpad for supercollider
 
+" Fuzzy Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Custom status line
 Plug 'itchyny/lightline.vim'
 
