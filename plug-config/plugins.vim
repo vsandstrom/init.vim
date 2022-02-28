@@ -4,11 +4,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Cool theme
 " Plug 'dracula/vim'
-
-Plug 'morhetz/gruvbox'
-
+" Plug 'morhetz/gruvbox'
 " Plug 'tjdevries/colorbuddy.nvim'
 " Plug 'bbenzikry/snazzybuddy.nvim'
+Plug 'ajmwagar/vim-deus'
 
 " LSP Configuration
 Plug 'neovim/nvim-lspconfig'
@@ -96,8 +95,10 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " lua snippets
-" Plug 'madskjeldgaard/lua-supercollider-snippets'
-" Plug 'norcalli/snippets.nvim'
+Plug 'norcalli/snippets.nvim'
+Plug 'madskjeldgaard/lua-supercollider-snippets'
+
+Plug 'madskjeldgaard/supercollider-h4x-nvim'
 
 " For ultisnips users.
 " Plug 'SirVer/ultisnips'

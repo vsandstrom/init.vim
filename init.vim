@@ -1,10 +1,12 @@
+" ----- SETTINGS -----
+" reload init.vim when edited.
+autocmd! BufWritePost init.vim source ~/.config/nvim/init.vim
+
+source $HOME/.config/nvim/plug-config/settings.vim
+
 " ----- PLUGINS ----- 
 
 source $HOME/.config/nvim/plug-config/plugins.vim
-
-" ----- SETTINGS -----
-
-source $HOME/.config/nvim/plug-config/settings.vim
 
 " ----- RAINBOW -----
  
@@ -18,9 +20,6 @@ source $HOME/.config/nvim/plug-config/scnvim.vim
 
 source $HOME/.config/nvim/plug-config/nerdtree.vim
 
-" ----- HIGHLIGHTEDYANK -----
-
-let g:highlightedyank_highlight_duration = -1
 
 " ----- NVIM-LSPCONFIG -----
 
@@ -35,17 +34,29 @@ source $HOME/.config/nvim/plug-config/nvim-cmp.vim
 source $HOME/.config/nvim/plug-config/luasnips.vim
 
 " ----- TREESITTER -----
-" EMPTY FILE:
-" source $HOME/.config/nvim/plug-config/treesitter.vim
+
+source $HOME/.config/nvim/plug-config/treesitter.vim
 
 " ----- GITGUTTER -----
 
 source $HOME/.config/nvim/plug-config/gitgutter.vim
 
-" ----- FAUST -----
+" ----- INDENT BLANKLINE -----
 
-" source $HOME/.config/nvim/plug-config/faust.vim
+" source $HOME/.config/nvim/plug-config/indent.vim
 
 " ----- SNIPPETS -----
 
 " source $HOME/.config/nvim/plug-config/snippets.vim
+
+" ----- COLORSCHEME -----
+
+" source $HOME/.config/nvim/plug-config/kanagawa.vim
+
+" ----- SC-H4X -----
+
+source $HOME/.config/nvim/plug-config/sc_h4x.vim
+
+" ------------------------------------------------
+colorscheme deus
+syntax enable

@@ -12,7 +12,7 @@ let g:scnvim_postwin_syntax_hl = 1
 let g:scnvim_snippet_format = "luasnip"
 
 " Opens documentation in vim buffer instead of external window
-let g:scnvim_scdoc=1
+let g:scnvim_scdoc=0
 
 " change default udp-port
 " let g:scnvim_sclang_options=['-u', 9999]

@@ -6,6 +6,7 @@ saga.init_lsp_saga()
 
 EOF
 
+
 " lsp provider to find the cursor word definition and reference
 nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " or use command LspSagaFinder
@@ -36,8 +37,7 @@ nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<
 " and you also can use smart_scroll_with_saga to scroll in signature help win
 
 " show
-nnoremap <silent><leader>cd <cmd>lua
-require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+nnoremap <silent><leader>cd <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
 
 nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
 " only show diagnostic if cursor is over the area
