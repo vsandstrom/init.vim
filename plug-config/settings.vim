@@ -56,7 +56,7 @@ function! ToggleScroll()
 	endif
 endfunction
 
-" ctrl + f as in follow
+" ctrl + f as in 'follow'
 nmap <C-f> :call ToggleScroll()<cr>
 
 
