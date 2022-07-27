@@ -20,6 +20,9 @@ source $HOME/.config/nvim/plug-config/scnvim.vim
 
 source $HOME/.config/nvim/plug-config/nerdtree.vim
 
+" ----- VIM-STARTIFY -----
+
+source $HOME/.config/nvim/plug-config/startify.vim
 
 " ----- NVIM-LSPCONFIG -----
 
@@ -57,6 +60,16 @@ source $HOME/.config/nvim/plug-config/gitgutter.vim
 
 source $HOME/.config/nvim/plug-config/sc_h4x.vim
 
+" ----- VIMTEX -----
+
+source $HOME/.config/nvim/plug-config/vimtex.vim
+
+" ----- LUALINE -----
+
+source $HOME/.config/nvim/plug-config/lualine.lua
+
 " ------------------------------------------------
-colorscheme deus
+colorscheme gruvbox
 syntax enable
+
+hi Normal guifg=#bbbbbb guibg=#333333 gui=NONE

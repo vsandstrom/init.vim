@@ -1,13 +1,15 @@
 " ----- PLUGINS ----- 
+"
 
 call plug#begin('~/.config/nvim/plugged')
 
 "Cool theme
-" Plug 'dracula/vim'
-" Plug 'morhetz/gruvbox'
-" Plug 'tjdevries/colorbuddy.nvim'
-" Plug 'bbenzikry/snazzybuddy.nvim'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'bbenzikry/snazzybuddy.nvim'
 Plug 'ajmwagar/vim-deus'
+Plug 'rebelot/kanagawa.nvim'
 
 " LSP Configuration
 Plug 'neovim/nvim-lspconfig'
@@ -25,7 +27,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Custom status line
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+
+" Lua status line
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Show current git branch
 Plug 'itchyny/vim-gitbranch'
@@ -48,7 +55,7 @@ Plug 'luochen1990/rainbow'
 " Enables easy and contextual commenting
 Plug 'tpope/vim-commentary'
 
-"Enables git/GitHub support
+"Enables git support
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
@@ -61,7 +68,6 @@ Plug 'tmhedberg/SimpylFold'
 " Pandoc vim integration + syntax
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-
 
 " Enables multiple cursors, use control + N to use
 Plug 'mg979/vim-visual-multi'
@@ -98,15 +104,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'norcalli/snippets.nvim'
 Plug 'madskjeldgaard/lua-supercollider-snippets'
 
-Plug 'madskjeldgaard/supercollider-h4x-nvim'
-
-" For ultisnips users.
-" Plug 'SirVer/ultisnips'
-" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
-" For snippy users.
-" Plug 'dcampos/nvim-snippy'
-" Plug 'dcampos/cmp-snippy'
+" Plug 'madskjeldgaard/supercollider-h4x-nvim'
 
 Plug 'glepnir/lspsaga.nvim'
 
@@ -115,5 +113,9 @@ Plug 'glepnir/lspsaga.nvim'
 
 " Other faust things
 " Plug 'madskjeldgaard/faust-nvim'
+
+Plug 'jbyuki/instant.nvim'
+
+Plug 'lervag/vimtex'
 
 call plug#end()

@@ -23,6 +23,9 @@ noremap H 0
 noremap L $
 tnoremap <ESC> <C-\><C-n>
 
+" Username in collaborative sessions
+let g:instant_username = "vikboi"
+
 au BufNewFile,BufRead *.py	" sets specific settings depending on file extension of file being edited
 		\ set tabstop=4
 		\ set softtabstop=4
@@ -60,6 +63,9 @@ endfunction
 " ctrl + f as in 'follow'
 nmap <silent><C-f> :call ToggleScrollFollow()<cr>
 
+" Execute current python buffer, works if script has no argv inputs
+autocmd FileType python map <buffer> <F3> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F3> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-" TODO: Not working properly, fix sometime
-" autocmd FileType python nnoremap <buffer> <F3> :! python3 % <CR> 
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
